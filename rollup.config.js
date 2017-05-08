@@ -14,5 +14,6 @@ export default {
       ],
       exclude: 'node_modules/**'
     })
-  ]
+  ],
+  external: ['url-resolver-fs', 'fs-resolver-fs']
 };
