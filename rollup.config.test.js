@@ -12,7 +12,6 @@ export default {
       plugins: [
         'transform-async-generator-functions'
       ],
-      presets: ['es2015-rollup'],
       exclude: 'node_modules/**'
     }),
     multiEntry()

@@ -15,5 +15,5 @@ export default {
       exclude: 'node_modules/**'
     })
   ],
-  external: ['url-resolver-fs', 'fs-resolver-fs']
+  external: ['url-resolver-fs', 'fs-resolver-fs', 'config-expander']
 };
