@@ -13,6 +13,11 @@ import {
 from 'fs-resolver-fs';
 
 import {
+  SVNHTTPSScheme
+}
+from 'svn-dav-fs';
+
+import {
   expand
 }
 from 'config-expander';
@@ -67,7 +72,7 @@ async function prepareResolver(options) {
       }
     });
 
-  const resolver = new Resolver(config, [HTTPScheme, HTTPSScheme, FileScheme]);
+  const resolver = new Resolver(config, [HTTPScheme, HTTPSScheme, FileScheme, SVNHTTPSScheme]);
 
   return resolver;
 }
