@@ -7,10 +7,7 @@ import {
 }
 from 'url-resolver-fs';
 
-import {
-  FileScheme
-}
-from 'fs-resolver-fs';
+import FileScheme from 'fs-resolver-fs';
 
 import {
   SVNHTTPSScheme
@@ -52,12 +49,7 @@ program.parse(process.argv);
 async function prepareResolver(options) {
 
   const defaultConfig = {
-    schemes: {
-      tmp: {
-        base: 'http',
-        prefix: 'http:///tmp'
-      }
-    }
+    schemes: {}
   };
 
   const config = await expand(options.config ? "${include('" + path.basename(options.config) + "')}" :
@@ -68,5 +60,5 @@ async function prepareResolver(options) {
       }
     });
 
-  return new Resolver(config, [new HTTPScheme(), new HTTPSScheme(), /*new FileScheme(),*/ new SVNHTTPSScheme()]);
+  return new Resolver(config, [new HTTPScheme(), new HTTPSScheme(), new FileScheme(), new SVNHTTPSScheme()]);
 }
