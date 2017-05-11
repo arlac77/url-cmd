@@ -23,30 +23,53 @@ const program = require('caporal'),
   path = require('path'),
   ora = require('ora');
 
-const spinner = ora('args').start();
-
-process.on('uncaughtException', err => spinner.fail(err));
-process.on('unhandledRejection', reason => spinner.fail(reason));
 
 program
   .description('work with url resources')
   .version(require(path.join(__dirname, '..', 'package.json')).version)
-  .command('list', 'list url content')
   .option('-c, --config <file>', 'use config from file')
+  .command('info', 'info url')
   .argument('<url>', 'url to to list')
   .action(async(args, options, logger) => {
+    const {resolver,spinner} = await prepareResolver( options);
 
-    const resolver = await prepareResolver(options);
+    const s = await resolver.stat(args.url);
+    console.log(s);
+    spinner.end();
+  })
+  .command('list', 'list url content')
+  .argument('<url>', 'url to to list')
+  .action(async(args, options, logger) => {
+    const {resolver,spinner} = await prepareResolver( options);
 
     for (const entry of resolver.list(args.url)) {
       console.log(entry);
     }
+    spinner.end();
+  })
+  .command('copy', 'copy url content')
+  .argument('<source>', 'source url')
+  .argument('<dest>', 'dest url')
+  .action(async(args, options, logger) => {
+    const {resolver,spinner} = await prepareResolver( options);
+
+    const s = await resolver.get(args.source);
+    const d = await resolver.put(args.dest);
+
+    s.pipe(d);
+    spinner.end();
   });
 
 program.parse(process.argv);
 
 
 async function prepareResolver(options) {
+  const spinner = ora('args');
+
+  process.on('uncaughtException', err => spinner.fail(err));
+  process.on('unhandledRejection', reason => spinner.fail(reason));
+
+  spinner.start();
 
   const defaultConfig = {
     schemes: {}
@@ -60,5 +83,7 @@ async function prepareResolver(options) {
       }
     });
 
-  return new Resolver(config, [new HTTPScheme(), new HTTPSScheme(), new FileScheme(), new SVNHTTPSScheme()]);
+  return {
+    resolver: new Resolver(config, [new HTTPScheme(), new HTTPSScheme(), new FileScheme(), new SVNHTTPSScheme()]),
+    spinner };
 }
