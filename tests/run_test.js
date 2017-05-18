@@ -7,8 +7,7 @@ import test from 'ava';
 
 const execa = require('execa');
 
-test('cli', async t =>
-  execa(path.join(__dirname, '..', '..', 'bin', 'url-util'), ['-h']).then(result =>
-    t.regex(result.stdout, /--config <file>/)
-  )
-);
+test('cli', async t => {
+  const result = await execa(path.join(__dirname, '..', '..', 'bin', 'url-util'), ['-h']);
+  t.regex(result.stdout, /--config <file>/);
+});
