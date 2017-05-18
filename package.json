@@ -9,8 +9,8 @@
     "test": "ava",
     "pretest": "rollup -c rollup.config.test.js",
     "posttest": "markdown-doctest",
-    "prepublish": "rollup --output=bin/url-util -c -- src/url-util.mjs && chmod +x bin/url-util",
-    "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.mjs >README.md",
+    "prepublish": "rollup --output=bin/url-util -c -- src/url-util.js && chmod +x bin/url-util",
+    "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "devDependencies": {
@@ -34,7 +34,8 @@
   },
   "version": "0.0.0-semantic-release",
   "description": "cli tool to work with url resources",
-  "main": "dist/index.js",
+  "main": "src/url-util.js",
+  "module": "src/url-util.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arlac77/url-util.git"
@@ -51,12 +52,10 @@
     "svn-dav-fs": "^3.1.9",
     "url-resolver-fs": "^3.0.0"
   },
-  "contributors": [
-    {
-      "name": "Markus Felten",
-      "email": "markus.felten@gmx.de"
-    }
-  ],
+  "contributors": [{
+    "name": "Markus Felten",
+    "email": "markus.felten@gmx.de"
+  }],
   "license": "BSD-2-Clause",
   "config": {
     "commitizen": {
