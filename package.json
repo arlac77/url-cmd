@@ -8,9 +8,9 @@
     "precover": "rollup -c rollup.config.test.js",
     "test": "ava",
     "pretest": "rollup -c rollup.config.test.js",
-    "posttest": "markdown-doctest",
-    "prepublish": "rollup --output=bin/url-util -c -- src/url-util.mjs && chmod +x bin/url-util",
-    "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.mjs >README.md",
+    "posttest": "npm run prepublish && markdown-doctest",
+    "prepublish": "rollup --output=bin/url-util -c -- {{module}} && chmod +x bin/url-util",
+    "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "devDependencies": {
@@ -87,5 +87,8 @@
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
-  }
+  },
+  "keywords": [
+    "npm-package-template"
+  ]
 }
