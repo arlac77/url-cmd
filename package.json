@@ -1,7 +1,7 @@
 {
-  "name": "url-util",
+  "name": "url-cmd",
   "bin": {
-    "url-util": "bin/url-util"
+    "url-cmd": "bin/url-cmd"
   },
   "scripts": {
     "cover": "nyc ava",
@@ -9,7 +9,7 @@
     "test": "ava",
     "pretest": "rollup -c rollup.config.test.js",
     "posttest": "npm run prepublish && markdown-doctest",
-    "prepublish": "rollup --output=bin/url-util -c -- src/url-util.js && chmod +x bin/url-util",
+    "prepublish": "rollup --output=bin/url-cmd -c -- src/url-cmd.js && chmod +x bin/url-cmd",
     "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -34,16 +34,16 @@
   },
   "version": "0.0.0-semantic-release",
   "description": "cli tool to work with url resources",
-  "main": "src/url-util.js",
-  "module": "src/url-util.js",
+  "main": "src/url-cmd.js",
+  "module": "src/url-cmd.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arlac77/url-util.git"
+    "url": "git+https://github.com/arlac77/url-cmd.git"
   },
   "bugs": {
-    "url": "https://github.com/arlac77/url-util/issues"
+    "url": "https://github.com/arlac77/url-cmd/issues"
   },
-  "homepage": "https://github.com/arlac77/url-util#readme",
+  "homepage": "https://github.com/arlac77/url-cmd#readme",
   "dependencies": {
     "caporal": "^0.5.0",
     "config-expander": "^7.1.2",
