@@ -23,24 +23,24 @@ const program = require('caporal'),
   path = require('path'),
   ora = require('ora');
 
-
 program
   .description('work with url resources')
   .version(require(path.join(__dirname, '..', 'package.json')).version)
   .option('-c, --config <file>', 'use config from file')
   .command('info', 'info url')
   .argument('<url>', 'url to to list')
-  .action(async(args, options, logger) => {
-    const {resolver,spinner} = await prepareResolver( options);
-
-    const s = await resolver.stat(args.url);
-    console.log(s);
-    spinner.end();
+  .action(async(args, options) => {
+    const {
+      resolver, spinner
+    } = await prepareResolver(options);
+    spinner.succeed(await resolver.stat(args.url));
   })
   .command('list', 'list url content')
   .argument('<url>', 'url to to list')
-  .action(async(args, options, logger) => {
-    const {resolver,spinner} = await prepareResolver( options);
+  .action(async(args, options) => {
+    const {
+      resolver, spinner
+    } = await prepareResolver(options);
 
     for (const entry of resolver.list(args.url)) {
       console.log(entry);
@@ -50,8 +50,10 @@ program
   .command('copy', 'copy url content')
   .argument('<source>', 'source url')
   .argument('<dest>', 'dest url')
-  .action(async(args, options, logger) => {
-    const {resolver,spinner} = await prepareResolver( options);
+  .action(async(args, options) => {
+    const {
+      resolver, spinner
+    } = await prepareResolver(options);
 
     const s = await resolver.get(args.source);
     const d = await resolver.put(args.dest);
@@ -61,7 +63,6 @@ program
   });
 
 program.parse(process.argv);
-
 
 async function prepareResolver(options) {
   const spinner = ora('args');
@@ -85,5 +86,6 @@ async function prepareResolver(options) {
 
   return {
     resolver: new Resolver(config, [new HTTPScheme(), new HTTPSScheme(), new FileScheme(), new SVNHTTPSScheme()]),
-    spinner };
+    spinner
+  };
 }
