@@ -33,7 +33,7 @@ program
     const {
       resolver, spinner
     } = await prepareResolver(options);
-    spinner.succeed(await resolver.stat(args.url));
+    spinner.succeed(JSON.stringify(await resolver.stat(args.url), undefined, 2));
   })
   .command('list', 'list url content')
   .argument('<url>', 'url to to list')
