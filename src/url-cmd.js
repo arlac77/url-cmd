@@ -1,7 +1,3 @@
-/* jslint node: true, esnext: true */
-
-'use strict';
-
 import {
   Resolver, HTTPScheme, HTTPSScheme
 }
@@ -19,9 +15,9 @@ import {
 }
 from 'config-expander';
 
-const program = require('caporal'),
-  path = require('path'),
-  ora = require('ora');
+const path = require('path');
+const ora = require('ora');
+const program = require('caporal');
 
 program
   .description('work with url resources')
@@ -55,11 +51,9 @@ program
       resolver, spinner
     } = await prepareResolver(options);
 
-    const s = await resolver.get(args.source);
-    const d = await resolver.put(args.dest);
+    await resolver.put(args.dest, await resolver.get(args.source));
 
-    s.pipe(d);
-    spinner.end();
+    spinner.succeed(`copied ${args.source} to ${args.dest}`);
   });
 
 program.parse(process.argv);
