@@ -23,6 +23,13 @@ program
   .description('work with url resources')
   .version(require(path.join(__dirname, '..', 'package.json')).version)
   .option('-c, --config <file>', 'use config from file')
+  .command('schemes', 'list schemes')
+  .action(async(args, options) => {
+    const {
+      resolver, spinner
+    } = await prepareResolver(options);
+    spinner.succeed([...resolver.schemes.keys()]);
+  })
   .command('info', 'info url')
   .argument('<url>', 'url to to list')
   .action(async(args, options) => {
