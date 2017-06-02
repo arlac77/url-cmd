@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "ava": "^0.19.1",
-    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-stage-3": "^6.24.1",
     "cz-conventional-changelog": "^2.0.0",
     "execa": "^0.6.3",
     "jsdoc-babel": "^0.3.0",
@@ -26,8 +26,7 @@
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-multi-entry": "^2.0.1",
     "semantic-release": "^6.3.6",
-    "xo": "^0.19.0",
-    "babel-preset-stage-3": "^6.24.1"
+    "xo": "^0.19.0"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -45,6 +44,7 @@
   },
   "homepage": "https://github.com/arlac77/url-cmd#readme",
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "caporal": "^0.6.0",
     "config-expander": "^7.1.2",
     "fs-resolver-fs": "^2.0.0",

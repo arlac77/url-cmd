@@ -9,10 +9,10 @@ export default {
   plugins: [
     babel({
       babelrc: false,
-      plugins: [
-        'transform-async-generator-functions'
-      ],
-      exclude: 'node_modules/**'
+      exclude: 'node_modules/**',
+      presets: [
+        "stage-3"
+      ]
     })
   ],
   external: ['url-resolver-fs', 'fs-resolver-fs', 'svn-dav-fs', 'config-expander']
