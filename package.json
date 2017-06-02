@@ -88,8 +88,5 @@
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
-  },
-  "keywords": [
-    "npm-package-template"
-  ]
+  }
 }
