@@ -11,7 +11,14 @@ export default {
       babelrc: false,
       exclude: 'node_modules/**',
       presets: [
-        "stage-3"
+        'stage-3'
+      ],
+      plugins: [
+        ['transform-regenerator', {
+          asyncGenerators: true,
+          generators: false,
+          async: false
+        }]
       ]
     })
   ],
