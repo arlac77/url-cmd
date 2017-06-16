@@ -53,12 +53,10 @@
     "svn-dav-fs": "^4.0.0",
     "url-resolver-fs": "^4.0.2"
   },
-  "contributors": [
-    {
-      "name": "Markus Felten",
-      "email": "markus.felten@gmx.de"
-    }
-  ],
+  "contributors": [{
+    "name": "Markus Felten",
+    "email": "markus.felten@gmx.de"
+  }],
   "license": "BSD-2-Clause",
   "xo": {
     "space": true
@@ -86,8 +84,5 @@
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
-  },
-  "keywords": [
-    "npm-package-template"
-  ]
+  }
 }

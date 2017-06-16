@@ -11,11 +11,12 @@ export default {
         'stage-3'
       ],
       plugins: [
-        ['transform-regenerator', {
-          asyncGenerators: true,
-          generators: false,
-          async: false
-        }]
+        /*
+               ['transform-regenerator', {
+                 asyncGenerators: true,
+                 generators: false,
+                 async: false
+               }]*/
       ]
     })
   ],
