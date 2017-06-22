@@ -1,8 +1,12 @@
 import babel from 'rollup-plugin-babel';
+import pkg from './package.json';
 
 export default {
   banner: '#!/usr/bin/env node',
-  format: 'cjs',
+  targets: [{
+    dest: pkg.bin['url-cmd'],
+    format: 'cjs'
+  }],
   plugins: [
     babel({
       babelrc: false,
