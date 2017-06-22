@@ -48,15 +48,17 @@
     "babel-polyfill": "^6.23.0",
     "caporal": "^0.6.0",
     "config-expander": "^7.1.2",
-    "fs-resolver-fs": "^2.0.0",
-    "ora": "^1.2.0",
-    "svn-dav-fs": "^4.0.0",
+    "fs-resolver-fs": "^2.0.2",
+    "ora": "^1.3.0",
+    "svn-dav-fs": "^4.0.1",
     "url-resolver-fs": "^4.0.2"
   },
-  "contributors": [{
-    "name": "Markus Felten",
-    "email": "markus.felten@gmx.de"
-  }],
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
   "license": "BSD-2-Clause",
   "xo": {
     "space": true
