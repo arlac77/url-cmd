@@ -7,8 +7,7 @@
     "cover": "nyc ava",
     "precover": "rollup -c tests/rollup.config.js",
     "test": "ava",
-    "pretest": "rollup -c tests/rollup.config.js",
-    "posttest": "npm run prepublish && markdown-doctest",
+    "pretest": "npm run prepublish && rollup -c tests/rollup.config.js",
     "prepublish": "rollup -c -- src/url-cmd.js && chmod +x bin/url-cmd",
     "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
@@ -53,20 +52,17 @@
     "svn-dav-fs": "^4.0.1",
     "url-resolver-fs": "^5.0.1"
   },
-  "contributors": [
-    {
-      "name": "Markus Felten",
-      "email": "markus.felten@gmx.de"
-    }
-  ],
+  "contributors": [{
+    "name": "Markus Felten",
+    "email": "markus.felten@gmx.de"
+  }],
   "license": "BSD-2-Clause",
   "xo": {
     "space": true
   },
   "ava": {
     "files": [
-      "build/test-bundle.js",
-      "src/**/*.js"
+      "tests/*test.js"
     ],
     "require": [
       "babel-register"
