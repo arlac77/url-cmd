@@ -7,13 +7,14 @@
     "cover": "nyc ava",
     "precover": "rollup -c tests/rollup.config.js",
     "test": "ava",
-    "pretest": "npm run prepublish && rollup -c tests/rollup.config.js",
+    "pretest": "rollup -c tests/rollup.config.js",
     "prepublish": "rollup -c -- src/url-cmd.js && chmod +x bin/url-cmd",
     "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "posttest": "npm run prepublish && markdown-doctest"
   },
   "devDependencies": {
-    "ava": "^0.19.1",
+    "ava": "^0.20.0",
     "babel-plugin-transform-regenerator": "^6.24.1",
     "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-stage-3": "^6.24.1",
@@ -21,7 +22,7 @@
     "jsdoc-babel": "^0.3.0",
     "jsdoc-to-markdown": "^3.0.0",
     "markdown-doctest": "^0.9.1",
-    "nyc": "^11.0.2",
+    "nyc": "^11.0.3",
     "rollup": "^0.43.0",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-multi-entry": "^2.0.1",
@@ -52,10 +53,12 @@
     "svn-dav-fs": "^4.0.1",
     "url-resolver-fs": "^5.0.1"
   },
-  "contributors": [{
-    "name": "Markus Felten",
-    "email": "markus.felten@gmx.de"
-  }],
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
   "license": "BSD-2-Clause",
   "xo": {
     "space": true
@@ -82,5 +85,8 @@
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
-  }
+  },
+  "keywords": [
+    "npm-package-template"
+  ]
 }
