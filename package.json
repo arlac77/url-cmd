@@ -7,11 +7,11 @@
     "cover": "nyc ava",
     "precover": "rollup -c tests/rollup.config.js",
     "test": "ava",
-    "pretest": "npm run prepublish && rollup -c tests/rollup.config.js",
-    "prepublish": "rollup -c -- src/url-cmd.js && chmod +x bin/url-cmd",
+    "pretest": "rollup -c tests/rollup.config.js",
     "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "posttest": "npm run prepublish && markdown-doctest"
+    "posttest": "npm run prepare && markdown-doctest",
+    "prepare": "rollup -c -- src/url-cmd.js"
   },
   "devDependencies": {
     "ava": "^0.20.0",
@@ -65,12 +65,21 @@
     "space": true
   },
   "ava": {
-    "files": ["tests/*test.js"],
-    "require": ["babel-register"]
+    "files": [
+      "tests/*test.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
   },
   "nyc": {
-    "include": ["build/test-bundle.js", "src/**/*.js"],
-    "reporter": ["lcov"],
+    "include": [
+      "build/test-bundle.js",
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "lcov"
+    ],
     "report-dir": "./build/coverage"
   },
   "template": {
@@ -78,5 +87,8 @@
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
   },
-  "keywords": ["url", "file system"]
+  "keywords": [
+    "url",
+    "file system"
+  ]
 }
