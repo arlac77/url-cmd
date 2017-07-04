@@ -3,17 +3,17 @@ import pkg from './package.json';
 
 export default {
   banner: '#!/usr/bin/env node',
-  targets: [{
-    dest: pkg.bin['url-cmd'],
-    format: 'cjs'
-  }],
+  targets: [
+    {
+      dest: pkg.bin['url-cmd'],
+      format: 'cjs'
+    }
+  ],
   plugins: [
     babel({
       babelrc: false,
       exclude: 'node_modules/**',
-      presets: [
-        'stage-3'
-      ],
+      presets: ['stage-3'],
       plugins: [
         /*
                ['transform-regenerator', {
@@ -24,5 +24,11 @@ export default {
       ]
     })
   ],
-  external: ['url-resolver-fs', 'fs-resolver-fs', 'svn-dav-fs', 'config-expander']
+  external: [
+    'url-resolver-fs',
+    'fs-resolver-fs',
+    'svn-dav-fs',
+    'sftp-resolver-fs',
+    'config-expander'
+  ]
 };
