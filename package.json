@@ -65,21 +65,12 @@
     "space": true
   },
   "ava": {
-    "files": [
-      "tests/*test.js"
-    ],
-    "require": [
-      "babel-register"
-    ]
+    "files": ["tests/*test.js"],
+    "require": ["babel-register"]
   },
   "nyc": {
-    "include": [
-      "build/test-bundle.js",
-      "src/**/*.js"
-    ],
-    "reporter": [
-      "lcov"
-    ],
+    "include": ["build/test-bundle.js", "src/**/*.js"],
+    "reporter": ["lcov"],
     "report-dir": "./build/coverage"
   },
   "template": {
@@ -87,5 +78,5 @@
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
   },
-  "keywords": []
+  "keywords": ["url", "file system"]
 }
