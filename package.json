@@ -14,7 +14,7 @@
     "prepare": "rollup -c -- src/url-cmd.js && chmod +x bin/url-cmd"
   },
   "devDependencies": {
-    "ava": "0.21.0",
+    "ava": "^0.21.0",
     "babel-plugin-transform-regenerator": "^6.24.1",
     "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-stage-3": "^6.24.1",
