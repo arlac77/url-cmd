@@ -1,4 +1,4 @@
-import { Resolver, HTTPScheme, HTTPSScheme } from 'url-resolver-fs';
+import { Resolver, HTTPScheme, HTTPSScheme, Context } from 'url-resolver-fs';
 import FileScheme from 'fs-resolver-fs';
 import { SVNHTTPSScheme } from 'svn-dav-fs';
 import SFTPScheme from 'sftp-resolver-fs';
@@ -7,6 +7,7 @@ import { expand } from 'config-expander';
 const path = require('path');
 const ora = require('ora');
 const program = require('caporal');
+const { URL } = require('url');
 
 program
   .description('work with url resources')
@@ -20,17 +21,21 @@ program
   .command('info', 'info url')
   .argument('<url>', 'url to to list')
   .action(async (args, options) => {
-    const { resolver, spinner } = await prepareResolver(options);
+    const { resolver, context, spinner } = await prepareResolver(options);
     spinner.succeed(
-      JSON.stringify(await resolver.stat(args.url), undefined, 2)
+      JSON.stringify(
+        await resolver.stat(context, new URL(args.url)),
+        undefined,
+        2
+      )
     );
   })
   .command('list', 'list url content')
   .argument('<url>', 'url to to list')
   .action(async (args, options) => {
-    const { resolver, spinner } = await prepareResolver(options);
+    const { resolver, context, spinner } = await prepareResolver(options);
 
-    for (const entry of resolver.list(args.url)) {
+    for (const entry of resolver.list(context, new URL(args.url))) {
       console.log(entry);
     }
     spinner.end();
@@ -39,9 +44,13 @@ program
   .argument('<source>', 'source url')
   .argument('<dest>', 'dest url')
   .action(async (args, options) => {
-    const { resolver, spinner } = await prepareResolver(options);
+    const { resolver, context, spinner } = await prepareResolver(options);
 
-    await resolver.put(args.dest, await resolver.get(args.source));
+    await resolver.put(
+      context,
+      new URL(args.dest),
+      await resolver.get(context, new URL(args.source))
+    );
 
     spinner.succeed(`copied ${args.source} to ${args.dest}`);
   });
@@ -73,6 +82,7 @@ async function prepareResolver(options) {
   );
 
   return {
+    context: new Context(),
     resolver: new Resolver(config, [
       new HTTPScheme(),
       new HTTPSScheme(),
