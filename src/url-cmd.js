@@ -1,4 +1,4 @@
-import { Resolver, HTTPScheme, HTTPSScheme, Context } from 'url-resolver-fs';
+import { Resolver, HTTPScheme, HTTPSScheme } from 'url-resolver-fs';
 import FileScheme from 'fs-resolver-fs';
 import { SVNHTTPSScheme } from 'svn-dav-fs';
 import SFTPScheme from 'sftp-resolver-fs';
@@ -81,15 +81,17 @@ async function prepareResolver(options) {
     }
   );
 
+  const resolver = new Resolver(config, [
+    new HTTPScheme(),
+    new HTTPSScheme(),
+    new FileScheme(),
+    new SVNHTTPSScheme(),
+    new SFTPScheme()
+  ]);
+
   return {
-    context: new Context(),
-    resolver: new Resolver(config, [
-      new HTTPScheme(),
-      new HTTPSScheme(),
-      new FileScheme(),
-      new SVNHTTPSScheme(),
-      new SFTPScheme()
-    ]),
+    context: resolver.createContext(new URL(`file://${process.cwd()}`)),
+    resolver,
     spinner
   };
 }
