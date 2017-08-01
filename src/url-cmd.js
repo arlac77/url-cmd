@@ -21,13 +21,13 @@ program
   .command('info', 'info url')
   .argument('<url>', 'url to to list')
   .action(async (args, options) => {
-    const { resolver, context, spinner } = await prepareResolver(options);
+    const { context, spinner } = await prepareResolver(options);
     spinner.succeed(JSON.stringify(await context.stat(args.url), undefined, 2));
   })
   .command('list', 'list url content')
   .argument('<url>', 'url to to list')
   .action(async (args, options) => {
-    const { resolver, context, spinner } = await prepareResolver(options);
+    const { context, spinner } = await prepareResolver(options);
 
     for (const entry of context.list(args.url)) {
       console.log(entry);
@@ -38,7 +38,7 @@ program
   .argument('<source>', 'source url')
   .argument('<dest>', 'dest url')
   .action(async (args, options) => {
-    const { resolver, context, spinner } = await prepareResolver(options);
+    const { context, spinner } = await prepareResolver(options);
 
     await context.put(args.dest, await context.get(args.source));
 
