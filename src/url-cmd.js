@@ -22,20 +22,14 @@ program
   .argument('<url>', 'url to to list')
   .action(async (args, options) => {
     const { resolver, context, spinner } = await prepareResolver(options);
-    spinner.succeed(
-      JSON.stringify(
-        await resolver.stat(context, new URL(args.url)),
-        undefined,
-        2
-      )
-    );
+    spinner.succeed(JSON.stringify(await context.stat(args.url), undefined, 2));
   })
   .command('list', 'list url content')
   .argument('<url>', 'url to to list')
   .action(async (args, options) => {
     const { resolver, context, spinner } = await prepareResolver(options);
 
-    for (const entry of resolver.list(context, new URL(args.url))) {
+    for (const entry of context.list(args.url)) {
       console.log(entry);
     }
     spinner.end();
@@ -46,11 +40,7 @@ program
   .action(async (args, options) => {
     const { resolver, context, spinner } = await prepareResolver(options);
 
-    await resolver.put(
-      context,
-      new URL(args.dest),
-      await resolver.get(context, new URL(args.source))
-    );
+    await context.put(args.dest, await context.get(args.source));
 
     spinner.succeed(`copied ${args.source} to ${args.dest}`);
   });
