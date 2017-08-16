@@ -45,7 +45,7 @@
   },
   "homepage": "https://github.com/arlac77/url-cmd#readme",
   "dependencies": {
-    "babel-polyfill": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
     "caporal": "^0.7.0",
     "config-expander": "9.0.0",
     "fs-resolver-fs": "3.0.1",
