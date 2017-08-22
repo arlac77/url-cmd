@@ -19,12 +19,14 @@ program
     spinner.succeed([...resolver.schemes.keys()]);
   })
   .command('info', 'info url')
+  .option('-c, --config <file>', 'use config from file')
   .argument('<url>', 'url to to list')
   .action(async (args, options) => {
     const { context, spinner } = await prepareResolver(options);
     spinner.succeed(JSON.stringify(await context.stat(args.url), undefined, 2));
   })
   .command('list', 'list url content')
+  .option('-c, --config <file>', 'use config from file')
   .argument('<url>', 'url to to list')
   .action(async (args, options) => {
     const { context, spinner } = await prepareResolver(options);
@@ -35,6 +37,7 @@ program
     spinner.end();
   })
   .command('copy', 'copy url content')
+  .option('-c, --config <file>', 'use config from file')
   .argument('<source>', 'source url')
   .argument('<dest>', 'dest url')
   .action(async (args, options) => {

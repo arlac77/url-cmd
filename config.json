@@ -1,0 +1,12 @@
+{
+  "schemes": {
+    "svn": {
+      "base": "svn+https",
+      "prefix": "https://"
+    },
+    "tmp": {
+      "base": "file",
+      "prefix": "file:///tmp"
+    }
+  }
+}
