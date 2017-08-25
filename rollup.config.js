@@ -3,12 +3,12 @@ import pkg from './package.json';
 
 export default {
   banner: '#!/usr/bin/env node',
-  targets: [
-    {
-      dest: pkg.bin['url-cmd'],
-      format: 'cjs'
-    }
-  ],
+
+  output: {
+    file: pkg.main,
+    format: 'cjs'
+  },
+
   plugins: [
     babel({
       babelrc: false,
@@ -24,11 +24,14 @@ export default {
       ]
     })
   ],
+
   external: [
     'url-resolver-fs',
     'fs-resolver-fs',
     'svn-dav-fs',
     'sftp-resolver-fs',
     'config-expander'
-  ]
+  ],
+
+  input: pkg.module
 };
