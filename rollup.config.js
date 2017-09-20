@@ -2,13 +2,11 @@ import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
 
 export default {
-  banner: '#!/usr/bin/env node',
-  targets: [
-    {
-      dest: pkg.bin['url-cmd'],
-      format: 'cjs'
-    }
-  ],
+  output: {
+    file: pkg.bin['url-cmd'],
+    format: 'cjs',
+    banner: '#!/usr/bin/env node'
+  },
   plugins: [
     babel({
       babelrc: false,
@@ -30,5 +28,6 @@ export default {
     'svn-dav-fs',
     'sftp-resolver-fs',
     'config-expander'
-  ]
+  ],
+  input: pkg.module
 };
