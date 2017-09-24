@@ -8,8 +8,10 @@
     "precover": "rollup -c tests/rollup.config.js",
     "test": "ava",
     "pretest": "rollup -c tests/rollup.config.js",
-    "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "docs":
+      "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
+    "semantic-release":
+      "semantic-release pre && npm publish && semantic-release post",
     "posttest": "npm run prepare && markdown-doctest",
     "prepare": "rollup -c -- src/url-cmd.js && chmod +x bin/url-cmd"
   },
@@ -45,7 +47,7 @@
   },
   "homepage": "https://github.com/arlac77/url-cmd#readme",
   "dependencies": {
-    "babel-polyfill": "6.23.0",
+    "babel-polyfill": "6.26.0",
     "caporal": "^0.7.0",
     "config-expander": "9.0.0",
     "fs-resolver-fs": "3.0.1",
@@ -65,21 +67,12 @@
     "space": true
   },
   "ava": {
-    "files": [
-      "tests/*test.js"
-    ],
-    "require": [
-      "babel-register"
-    ]
+    "files": ["tests/*test.js"],
+    "require": ["babel-register"]
   },
   "nyc": {
-    "include": [
-      "build/test-bundle.js",
-      "src/**/*.js"
-    ],
-    "reporter": [
-      "lcov"
-    ],
+    "include": ["build/test-bundle.js", "src/**/*.js"],
+    "reporter": ["lcov"],
     "report-dir": "./build/coverage"
   },
   "template": {
@@ -87,8 +80,5 @@
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
   },
-  "keywords": [
-    "url",
-    "file system"
-  ]
+  "keywords": ["url", "file system"]
 }
