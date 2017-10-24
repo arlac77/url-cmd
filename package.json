@@ -14,7 +14,7 @@
     "prepare": "rollup -c && chmod +x bin/url-cmd"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
+    "ava": "^0.23.0",
     "babel-plugin-transform-regenerator": "^6.26.0",
     "execa": "^0.8.0",
     "jsdoc-babel": "^0.3.0",
