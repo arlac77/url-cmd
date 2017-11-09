@@ -4,7 +4,7 @@
     "url-cmd": "bin/url-cmd"
   },
   "scripts": {
-    "cover": "nyc ava",
+    "cover": "nyc --temp-directory build/nyc ava",
     "precover": "rollup -c tests/rollup.config.js",
     "test": "ava",
     "pretest": "rollup -c tests/rollup.config.js",
