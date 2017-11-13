@@ -44,7 +44,7 @@
   "dependencies": {
     "babel-polyfill": "6.26.0",
     "caporal": "^0.8.0",
-    "config-expander": "9.0.0",
+    "config-expander": "9.0.1",
     "fs-resolver-fs": "3.0.2",
     "ora": "^1.3.0",
     "sftp-resolver-fs": "^1.2.0",
