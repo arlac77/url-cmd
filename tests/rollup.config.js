@@ -1,19 +1,13 @@
-import babel from 'rollup-plugin-babel';
+import multiEntry from 'rollup-plugin-multi-entry';
 
 export default {
-  input: 'tests/run-test.js',
+  input: 'tests/**/*-test.js',
   external: ['ava', 'path'],
 
-  plugins: [
-    babel({
-      babelrc: false,
-      presets: ['stage-3'],
-      exclude: 'node_modules/**'
-    })
-  ],
+  plugins: [multiEntry()],
 
   output: {
-    file: 'build/test-bundle.js',
+    file: 'build/bunde-test.js',
     format: 'cjs',
     sourcemap: true
   }

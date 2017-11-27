@@ -1,5 +1,5 @@
-import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
+import json from 'rollup-plugin-json';
 
 export default {
   output: {
@@ -7,21 +7,7 @@ export default {
     format: 'cjs',
     banner: '#!/usr/bin/env node'
   },
-  plugins: [
-    babel({
-      babelrc: false,
-      exclude: 'node_modules/**',
-      presets: ['stage-3'],
-      plugins: [
-        /*
-               ['transform-regenerator', {
-                 asyncGenerators: true,
-                 generators: false,
-                 async: false
-               }]*/
-      ]
-    })
-  ],
+  plugins: [json()],
   external: [
     'url-resolver-fs',
     'fs-resolver-fs',

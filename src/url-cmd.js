@@ -3,6 +3,7 @@ import FileScheme from 'fs-resolver-fs';
 import { SVNHTTPSScheme } from 'svn-dav-fs';
 import SFTPScheme from 'sftp-resolver-fs';
 import { expand } from 'config-expander';
+import { version } from '../package.json';
 
 const path = require('path');
 const ora = require('ora');
@@ -11,7 +12,7 @@ const { URL } = require('url');
 
 program
   .description('work with url resources')
-  .version(require(path.join(__dirname, '..', 'package.json')).version)
+  .version(version)
   .command('schemes', 'list schemes')
   .option('-c, --config <file>', 'use config from file')
   .action(async (args, options) => {
