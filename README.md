@@ -18,3 +18,18 @@
 url-cmd
 -------------------
 cli tool to work with url resources
+
+# API
+
+
+# install
+
+With [npm](http://npmjs.org) do:
+
+```shell
+npm install url-cmd
+```
+
+# license
+
+BSD-2-Clause
