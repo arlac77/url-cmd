@@ -1,4 +1,6 @@
 import pkg from './package.json';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
 import json from 'rollup-plugin-json';
 
 export default {
@@ -7,8 +9,12 @@ export default {
     format: 'cjs',
     banner: '#!/usr/bin/env node'
   },
-  plugins: [json()],
+  plugins: [resolve(), commonjs(), json()],
   external: [
+    'assert',
+    'events',
+    'path',
+    'url',
     'url-resolver-fs',
     'fs-resolver-fs',
     'svn-dav-fs',

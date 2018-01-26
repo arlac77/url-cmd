@@ -4,13 +4,15 @@ import { SVNHTTPSScheme } from 'svn-dav-fs';
 import SFTPScheme from 'sftp-resolver-fs';
 import { expand } from 'config-expander';
 import { version } from '../package.json';
+import { basename, dirname, resolve } from 'path';
+import ora from 'ora';
+import { URL } from 'url';
 
-const path = require('path');
-const ora = require('ora');
-const program = require('caporal');
-const { URL } = require('url');
+//import caporal from 'caporal';
 
-program
+const caporal = require('caporal');
+
+caporal
   .description('work with url resources')
   .version(version)
   .command('schemes', 'list schemes')
@@ -49,7 +51,7 @@ program
     spinner.succeed(`copied ${args.source} to ${args.dest}`);
   });
 
-program.parse(process.argv);
+caporal.parse(process.argv);
 
 async function prepareResolver(options) {
   const spinner = ora('args');
@@ -65,12 +67,12 @@ async function prepareResolver(options) {
 
   const config = await expand(
     options.config
-      ? "${include('" + path.basename(options.config) + "')}"
+      ? "${include('" + basename(options.config) + "')}"
       : defaultConfig,
     {
       constants: {
-        basedir: path.dirname(options.config || process.cwd()),
-        installdir: path.resolve(__dirname, '..')
+        basedir: dirname(options.config || process.cwd()),
+        installdir: resolve(__dirname, '..')
       }
     }
   );
