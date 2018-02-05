@@ -12,6 +12,7 @@ export default {
   plugins: [resolve(), commonjs(), json()],
   external: [
     'assert',
+    'os',
     'events',
     'path',
     'url',
