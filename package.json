@@ -37,7 +37,7 @@
     "fs-resolver-fs": "3.0.2",
     "ora": "^1.4.0",
     "sftp-resolver-fs": "^1.2.0",
-    "svn-dav-fs": "^5.2.0",
+    "svn-dav-fs": "^5.2.1",
     "url-resolver-fs": "5.2.6"
   },
   "devDependencies": {
