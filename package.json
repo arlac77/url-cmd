@@ -46,7 +46,7 @@
     "documentation": "^6.1.0",
     "execa": "^0.9.0",
     "markdown-doctest": "^0.9.1",
-    "nyc": "^11.5.0",
+    "nyc": "^11.6.0",
     "rollup": "^0.56.5",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-json": "^2.3.0",
