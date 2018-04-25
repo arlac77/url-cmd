@@ -26,7 +26,7 @@
     "docs": "documentation readme src/url-cmd.js --section=API",
     "semantic-release": "semantic-release",
     "posttest": "npm run prepare && markdown-doctest",
-    "prepare": "rollup -c && chmod +x bin/url-cmd",
+    "prepare": "rollup -c",
     "lint": "documentation lint src/url-cmd.js",
     "travis-deploy-once": "travis-deploy-once"
   },
