@@ -4,7 +4,10 @@
   "main": "src/url-cmd.js",
   "module": "src/url-cmd.js",
   "description": "cli tool to work with url resources",
-  "keywords": ["url", "file system"],
+  "keywords": [
+    "url",
+    "file system"
+  ],
   "contributors": [
     {
       "name": "Markus Felten",
@@ -49,7 +52,7 @@
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-multi-entry": "^2.0.2",
     "rollup-plugin-node-resolve": "^3.3.0",
-    "semantic-release": "^15.1.8",
+    "semantic-release": "^15.1.11",
     "travis-deploy-once": "^5.0.0",
     "rollup-plugin-executable": "^1.2.0"
   },
@@ -65,12 +68,21 @@
   },
   "homepage": "https://github.com/arlac77/url-cmd#readme",
   "ava": {
-    "files": ["build/*-test.js"],
-    "require": ["babel-register"]
+    "files": [
+      "build/*-test.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
   },
   "nyc": {
-    "include": ["build/*-test.js", "src/**/*.js"],
-    "reporter": ["lcov"],
+    "include": [
+      "build/*-test.js",
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "lcov"
+    ],
     "report-dir": "./build/coverage"
   },
   "xo": {
