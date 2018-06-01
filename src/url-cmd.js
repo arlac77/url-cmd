@@ -1,5 +1,5 @@
 import { Resolver, HTTPScheme, HTTPSScheme } from 'url-resolver-fs';
-import FileScheme from 'fs-resolver-fs';
+import { FileScheme } from 'fs-resolver-fs';
 import { SVNHTTPSScheme } from 'svn-dav-fs';
 import SFTPScheme from 'sftp-resolver-fs';
 import { expand } from 'config-expander';
