@@ -4,6 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import executable from 'rollup-plugin-executable';
 import json from 'rollup-plugin-json';
 import pkg from '../package.json';
+import baseRollup from '../rollup.config.js';
 
 const external = [
   'ava',
@@ -19,16 +20,7 @@ const external = [
   'config-expander'
 ];
 export default [
-  {
-    output: {
-      file: pkg.bin['url-cmd'],
-      format: 'cjs',
-      banner: '#!/usr/bin/env node'
-    },
-    plugins: [resolve(), commonjs(), json(), executable()],
-    external,
-    input: pkg.module
-  },
+  baseRollup,
   {
     input: 'tests/**/*-test.js',
     external,
