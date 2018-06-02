@@ -1,6 +1,9 @@
 {
   "name": "url-cmd",
   "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "src/url-cmd.js",
   "module": "src/url-cmd.js",
   "description": "cli tool to work with url resources",
