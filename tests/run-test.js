@@ -1,7 +1,6 @@
 import path from 'path';
 import test from 'ava';
-
-const execa = require('execa');
+import execa from 'execa';
 
 test('cli help', async t => {
   const result = await execa(path.join(__dirname, '..', 'bin', 'url-cmd'), [

@@ -8,6 +8,7 @@ import baseRollup from '../rollup.config.js';
 
 const external = [
   'ava',
+  'execa',
   'assert',
   'os',
   'events',
@@ -28,7 +29,8 @@ export default [
     output: {
       file: 'build/bunde-test.js',
       format: 'cjs',
-      sourcemap: true
+      sourcemap: true,
+      interop: false
     }
   }
 ];

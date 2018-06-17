@@ -8,7 +8,8 @@ export default {
   output: {
     file: pkg.bin['url-cmd'],
     format: 'cjs',
-    banner: '#!/usr/bin/env node'
+    banner: '#!/usr/bin/env node',
+    interop: false
   },
   plugins: [resolve(), commonjs(), json(), executable()],
   external: [
