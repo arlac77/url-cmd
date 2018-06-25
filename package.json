@@ -29,9 +29,10 @@
     "docs": "documentation readme src/url-cmd.js --section=API",
     "semantic-release": "semantic-release",
     "posttest": "npm run prepare && markdown-doctest",
-    "prepare": "rollup -c",
+    "prepare": "npm run snyk-protect; rollup -c",
     "lint": "documentation lint src/url-cmd.js",
-    "travis-deploy-once": "travis-deploy-once"
+    "travis-deploy-once": "travis-deploy-once",
+    "snyk-protect": "snyk protect"
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
@@ -41,7 +42,8 @@
     "ora": "^2.0.0",
     "sftp-resolver-fs": "^1.2.0",
     "svn-dav-fs": "^6.0.0",
-    "url-resolver-fs": "6.0.1"
+    "url-resolver-fs": "6.0.1",
+    "snyk": "^1.85.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
@@ -95,5 +97,6 @@
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
-  }
+  },
+  "snyk": true
 }
