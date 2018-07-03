@@ -41,7 +41,7 @@
     "ora": "^2.0.0",
     "sftp-resolver-fs": "^1.2.0",
     "svn-dav-fs": "^6.0.0",
-    "url-resolver-fs": "6.0.2"
+    "url-resolver-fs": "6.1.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
