@@ -39,7 +39,7 @@
     "config-expander": "9.1.6",
     "fs-resolver-fs": "^6.0.0",
     "ora": "^2.0.0",
-    "sftp-resolver-fs": "^1.2.0",
+    "sftp-resolver-fs": "^2.0.0",
     "svn-dav-fs": "^6.0.2",
     "url-resolver-fs": "6.3.0"
   },
