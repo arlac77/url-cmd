@@ -14,7 +14,7 @@ test('cli schemes', async t => {
     'schemes'
   ]);
   t.is(result.code, 0);
-  //t.regex(result.stderr, /https/);
+  t.regex(result.stdout, /https/);
 });
 
 test('cli info', async t => {

@@ -7,10 +7,7 @@
   "main": "src/url-cmd.js",
   "module": "src/url-cmd.js",
   "description": "cli tool to work with url resources",
-  "keywords": [
-    "url",
-    "file system"
-  ],
+  "keywords": ["url", "file system"],
   "contributors": [
     {
       "name": "Markus Felten",
@@ -38,7 +35,6 @@
     "caporal": "^0.10.0",
     "config-expander": "9.1.6",
     "fs-resolver-fs": "^6.0.2",
-    "ora": "^2.0.0",
     "sftp-resolver-fs": "^2.0.0",
     "svn-dav-fs": "^6.0.2",
     "url-resolver-fs": "6.3.0"
@@ -71,21 +67,12 @@
   },
   "homepage": "https://github.com/arlac77/url-cmd#readme",
   "ava": {
-    "files": [
-      "build/*-test.js"
-    ],
-    "require": [
-      "babel-register"
-    ]
+    "files": ["build/*-test.js"],
+    "require": ["babel-register"]
   },
   "nyc": {
-    "include": [
-      "build/*-test.js",
-      "src/**/*.js"
-    ],
-    "reporter": [
-      "lcov"
-    ],
+    "include": ["build/*-test.js", "src/**/*.js"],
+    "reporter": ["lcov"],
     "report-dir": "./build/coverage"
   },
   "xo": {

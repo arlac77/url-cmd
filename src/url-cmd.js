@@ -1,14 +1,11 @@
 import { Resolver, HTTPScheme, HTTPSScheme } from 'url-resolver-fs';
 import { FileScheme } from 'fs-resolver-fs';
 import { SVNHTTPSScheme } from 'svn-dav-fs';
-import SFTPScheme from 'sftp-resolver-fs';
+import { SFTPScheme } from 'sftp-resolver-fs';
 import { expand } from 'config-expander';
 import { version } from '../package.json';
 import { basename, dirname, resolve } from 'path';
-import ora from 'ora';
 import { URL } from 'url';
-
-//import caporal from 'caporal';
 
 const caporal = require('caporal');
 
@@ -18,48 +15,45 @@ caporal
   .command('schemes', 'list schemes')
   .option('-c, --config <file>', 'use config from file')
   .action(async (args, options) => {
-    const { resolver, spinner } = await prepareResolver(options);
-    spinner.succeed([...resolver.schemes.keys()]);
+    const { resolver } = await prepareResolver(options);
+    for (const [name, scheme] of resolver.schemes) {
+      console.log(`${name} ${JSON.stringify(scheme.options)}`);
+    }
   })
   .command('info', 'info url')
   .option('-c, --config <file>', 'use config from file')
   .argument('<url>', 'url to to list')
   .action(async (args, options) => {
-    const { context, spinner } = await prepareResolver(options);
-    spinner.succeed(JSON.stringify(await context.stat(args.url), undefined, 2));
+    const { context } = await prepareResolver(options);
+    console.log(JSON.stringify(await context.stat(args.url), undefined, 2));
   })
   .command('list', 'list url content')
   .option('-c, --config <file>', 'use config from file')
   .argument('<url>', 'url to to list')
   .action(async (args, options) => {
-    const { context, spinner } = await prepareResolver(options);
+    const { context } = await prepareResolver(options);
 
     for (const entry of context.list(args.url)) {
       console.log(entry);
     }
-    spinner.end();
   })
   .command('copy', 'copy url content')
   .option('-c, --config <file>', 'use config from file')
   .argument('<source>', 'source url')
   .argument('<dest>', 'dest url')
   .action(async (args, options) => {
-    const { context, spinner } = await prepareResolver(options);
+    const { context } = await prepareResolver(options);
 
     await context.put(args.dest, await context.get(args.source));
 
-    spinner.succeed(`copied ${args.source} to ${args.dest}`);
+    console.log(`copied ${args.source} to ${args.dest}`);
   });
 
 caporal.parse(process.argv);
 
 async function prepareResolver(options) {
-  const spinner = ora('args');
-
-  process.on('uncaughtException', err => spinner.fail(err));
-  process.on('unhandledRejection', reason => spinner.fail(reason));
-
-  spinner.start();
+  process.on('uncaughtException', err => console.error(err));
+  process.on('unhandledRejection', reason => console.error(reason));
 
   const defaultConfig = {
     schemes: {}
@@ -77,17 +71,14 @@ async function prepareResolver(options) {
     }
   );
 
-  const resolver = new Resolver(config, [
-    new HTTPScheme(),
-    new HTTPSScheme(),
-    new FileScheme(),
-    new SVNHTTPSScheme(),
-    new SFTPScheme()
-  ]);
+  const resolver = new Resolver(
+    config,
+    [HTTPScheme, HTTPSScheme, FileScheme, SVNHTTPSScheme, SFTPScheme],
+    process.env
+  );
 
   return {
     context: resolver.createContext(new URL(`file://${process.cwd()}`)),
-    resolver,
-    spinner
+    resolver
   };
 }
