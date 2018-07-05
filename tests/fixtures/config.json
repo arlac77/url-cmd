@@ -1,8 +1,8 @@
 {
   "schemes": {
-    "svn": {
+    "assembla": {
       "base": "svn+https",
-      "prefix": "https://"
+      "prefix": "https://assembla.com"
     },
     "tmp": {
       "base": "file",

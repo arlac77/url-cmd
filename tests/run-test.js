@@ -1,24 +1,25 @@
-import path from 'path';
 import test from 'ava';
+import { join } from 'path';
 import execa from 'execa';
 
 test('cli help', async t => {
-  const result = await execa(path.join(__dirname, '..', 'bin', 'url-cmd'), [
-    '-h'
-  ]);
+  const result = await execa(join(__dirname, '..', 'bin', 'url-cmd'), ['-h']);
   t.regex(result.stdout, /work with url resources/);
 });
 
 test('cli schemes', async t => {
-  const result = await execa(path.join(__dirname, '..', 'bin', 'url-cmd'), [
+  const result = await execa(join(__dirname, '..', 'bin', 'url-cmd'), [
+    '--config',
+    join(__dirname, '..', 'tests', 'fixtures', 'config.json'),
     'schemes'
   ]);
   t.is(result.code, 0);
   t.regex(result.stdout, /https/);
+  t.regex(result.stdout, /assembla/);
 });
 
 test('cli info', async t => {
-  const result = await execa(path.join(__dirname, '..', 'bin', 'url-cmd'), [
+  const result = await execa(join(__dirname, '..', 'bin', 'url-cmd'), [
     'info',
     'file://' + __dirname
   ]);
