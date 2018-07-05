@@ -17,7 +17,7 @@ caporal
   .action(async (args, options) => {
     const { resolver } = await prepareResolver(options);
     for (const [name, scheme] of resolver.schemes) {
-      console.log(`${name} ${JSON.stringify(scheme.options)}`);
+      console.log(`${name} ${JSON.stringify(scheme)}`);
     }
   })
   .command('info', 'info url')
