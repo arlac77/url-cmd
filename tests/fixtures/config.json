@@ -2,6 +2,9 @@
   "schemes": {
     "assembla": {
       "base": "svn+https",
+      "options": {
+        "proxy": "http://localhost:3128"
+      },
       "prefix": "https://assembla.com"
     },
     "tmp": {
