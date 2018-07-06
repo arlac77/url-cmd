@@ -39,7 +39,7 @@
     "config-expander": "9.1.6",
     "fs-resolver-fs": "^6.0.3",
     "sftp-resolver-fs": "^2.0.0",
-    "svn-dav-fs": "^6.0.3",
+    "svn-dav-fs": "^6.0.4",
     "url-resolver-fs": "^6.3.3"
   },
   "devDependencies": {
