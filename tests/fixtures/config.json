@@ -3,7 +3,11 @@
     "assembla": {
       "base": "svn+https",
       "options": {
-        "proxy": "http://localhost:3128"
+        "proxy": "http://localhost:3128",
+        "credentials": {
+          "user": "{ENVIRONMENT}SVN_USER",
+          "password": "{ENVIRONMENT}SVN_PASSWORD"
+        }
       },
       "prefix": "https://assembla.com"
     },
