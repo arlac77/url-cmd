@@ -56,7 +56,8 @@ async function prepareResolver(options) {
   process.on('unhandledRejection', reason => console.error(reason));
 
   const defaultConfig = {
-    schemes: {}
+    schemes: {},
+    credentials: {}
   };
 
   const config = await expand(
@@ -78,7 +79,13 @@ async function prepareResolver(options) {
   );
 
   return {
-    context: resolver.createContext(new URL(`file://${process.cwd()}`)),
+    context: resolver.createContext({
+      provideCredentials: async realm => {
+        console.log(`Credentials for: ${realm}`);
+        return config.credentials[realm];
+      },
+      base: new URL(`file://${process.cwd()}`)
+    }),
     resolver
   };
 }

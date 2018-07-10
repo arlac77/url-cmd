@@ -18,6 +18,17 @@ test('cli schemes', async t => {
   t.regex(result.stdout, /assembla/);
 });
 
+test.skip('cli assembla', async t => {
+  const result = await execa(join(__dirname, '..', 'bin', 'url-cmd'), [
+    '--config',
+    join(__dirname, '..', 'tests', 'fixtures', 'config.json'),
+    'info',
+    'assembla:delivery_notes/data/environments.json'
+  ]);
+  t.is(result.code, 0);
+  t.regex(result.stdout, /assembla/);
+});
+
 test('cli info', async t => {
   const result = await execa(join(__dirname, '..', 'bin', 'url-cmd'), [
     'info',

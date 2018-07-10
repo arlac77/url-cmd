@@ -3,17 +3,19 @@
     "assembla": {
       "base": "svn+https",
       "options": {
-        "proxy": "http://localhost:3128",
-        "credentials": {
-          "user": "{ENVIRONMENT}SVN_USER",
-          "password": "{ENVIRONMENT}SVN_PASSWORD"
-        }
+        "_proxy": "http://localhost:3128"
       },
-      "prefix": "https://assembla.com"
+      "prefix": "https://subversion.assembla.com/svn/"
     },
     "tmp": {
       "base": "file",
       "prefix": "file:///tmp"
+    }
+  },
+  "credentials": {
+    "Assembla Restricted Area": {
+      "user": "AAA",
+      "password": "BBB"
     }
   }
 }
