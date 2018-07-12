@@ -40,7 +40,7 @@
     "fs-resolver-fs": "^6.0.5",
     "sftp-resolver-fs": "^2.0.2",
     "svn-dav-fs": "^6.0.5",
-    "url-resolver-fs": "^6.5.0"
+    "url-resolver-fs": "^6.6.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
