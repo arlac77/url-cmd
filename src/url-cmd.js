@@ -78,17 +78,20 @@ async function prepareResolver(options) {
     process.env
   );
 
+  resolver.authProviders.push({
+    provideCredentials: async realm => {
+      console.log(`Credentials for: ${JSON.stringify(realm)}`);
+      if (realm !== undefined && realm.Basic !== undefined) {
+        //console.log(`Credentials for: ${realm.Basic.realm}`);
+        //console.log(JSON.stringify(config.credentials[realm.Basic.realm]));
+
+        return config.credentials[realm.Basic.realm];
+      }
+    }
+  });
+
   return {
     context: resolver.createContext({
-      provideCredentials: async realm => {
-        console.log(`Credentials for: ${JSON.stringify(realm)}`);
-        if (realm !== undefined && realm.Basic !== undefined) {
-          //console.log(`Credentials for: ${realm.Basic.realm}`);
-          //console.log(JSON.stringify(config.credentials[realm.Basic.realm]));
-
-          return config.credentials[realm.Basic.realm];
-        }
-      },
       base: new URL(`file://${process.cwd()}`)
     }),
     resolver
