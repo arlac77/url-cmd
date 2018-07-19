@@ -39,8 +39,8 @@
     "config-expander": "9.1.6",
     "fs-resolver-fs": "^6.0.8",
     "sftp-resolver-fs": "^2.0.3",
-    "svn-dav-fs": "^6.0.8",
-    "url-resolver-fs": "^7.0.3"
+    "svn-dav-fs": "^6.0.10",
+    "url-resolver-fs": "^7.2.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
