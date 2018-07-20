@@ -6,6 +6,7 @@ import { expand } from 'config-expander';
 import { version } from '../package.json';
 import { basename, dirname, resolve } from 'path';
 import { URL } from 'url';
+import { SvnSimpleAuthProvider } from 'svn-simple-auth-provider';
 
 const caporal = require('caporal');
 
@@ -89,6 +90,8 @@ async function prepareResolver(options) {
       }
     }
   });
+
+  resolver.authProviders.push(new SvnSimpleAuthProvider());
 
   return {
     context: resolver.createContext({

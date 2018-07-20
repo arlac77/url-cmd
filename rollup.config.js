@@ -18,6 +18,8 @@ export default {
     'events',
     'path',
     'url',
+    'fs',
+    'crypto',
     'url-resolver-fs',
     'fs-resolver-fs',
     'svn-dav-fs',
