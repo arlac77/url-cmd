@@ -24,6 +24,7 @@ export default {
     'fs-resolver-fs',
     'svn-dav-fs',
     'sftp-resolver-fs',
+    'svn-simple-auth-provider',
     'config-expander'
   ],
   input: pkg.module
