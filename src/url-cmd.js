@@ -1,36 +1,35 @@
-import { Resolver, HTTPScheme, HTTPSScheme } from 'url-resolver-fs';
-import { FileScheme } from 'fs-resolver-fs';
-import { SVNHTTPSScheme } from 'svn-dav-fs';
-import { SFTPScheme } from 'sftp-resolver-fs';
-import { expand } from 'config-expander';
-import { version } from '../package.json';
-import { basename, dirname, resolve } from 'path';
-import { URL } from 'url';
-import { SvnSimpleAuthProvider } from 'svn-simple-auth-provider';
+import { Resolver, HTTPScheme, HTTPSScheme } from "url-resolver-fs";
+import { FileScheme } from "fs-resolver-fs";
+import { SVNHTTPSScheme } from "svn-dav-fs";
+import { SFTPScheme } from "sftp-resolver-fs";
+import { expand } from "config-expander";
+import { version } from "../package.json";
+import { basename, dirname, resolve } from "path";
+import { SvnSimpleAuthProvider } from "svn-simple-auth-provider";
 
-const caporal = require('caporal');
+const caporal = require("caporal");
 
 caporal
-  .description('work with url resources')
+  .description("work with url resources")
   .version(version)
-  .command('schemes', 'list schemes')
-  .option('-c, --config <file>', 'use config from file')
+  .command("schemes", "list schemes")
+  .option("-c, --config <file>", "use config from file")
   .action(async (args, options) => {
     const { resolver } = await prepareResolver(options);
     for (const [name, scheme] of resolver.schemes) {
       console.log(`${name} ${JSON.stringify(scheme)}`);
     }
   })
-  .command('info', 'info url')
-  .option('-c, --config <file>', 'use config from file')
-  .argument('<url>', 'url to to list')
+  .command("info", "info url")
+  .option("-c, --config <file>", "use config from file")
+  .argument("<url>", "url to to list")
   .action(async (args, options) => {
     const { context } = await prepareResolver(options);
     console.log(JSON.stringify(await context.stat(args.url), undefined, 2));
   })
-  .command('list', 'list url content')
-  .option('-c, --config <file>', 'use config from file')
-  .argument('<url>', 'url to to list')
+  .command("list", "list url content")
+  .option("-c, --config <file>", "use config from file")
+  .argument("<url>", "url to to list")
   .action(async (args, options) => {
     const { context } = await prepareResolver(options);
 
@@ -38,10 +37,10 @@ caporal
       console.log(entry);
     }
   })
-  .command('copy', 'copy url content')
-  .option('-c, --config <file>', 'use config from file')
-  .argument('<source>', 'source url')
-  .argument('<dest>', 'dest url')
+  .command("copy", "copy url content")
+  .option("-c, --config <file>", "use config from file")
+  .argument("<source>", "source url")
+  .argument("<dest>", "dest url")
   .action(async (args, options) => {
     const { context } = await prepareResolver(options);
 
@@ -53,8 +52,8 @@ caporal
 caporal.parse(process.argv);
 
 async function prepareResolver(options) {
-  process.on('uncaughtException', err => console.error(err));
-  process.on('unhandledRejection', reason => console.error(reason));
+  process.on("uncaughtException", err => console.error(err));
+  process.on("unhandledRejection", reason => console.error(reason));
 
   const defaultConfig = {
     schemes: {},
@@ -68,7 +67,7 @@ async function prepareResolver(options) {
     {
       constants: {
         basedir: dirname(options.config || process.cwd()),
-        installdir: resolve(__dirname, '..')
+        installdir: resolve(__dirname, "..")
       }
     }
   );
