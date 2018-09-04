@@ -37,7 +37,7 @@
     "babel-polyfill": "6.26.0",
     "caporal": "^0.10.0",
     "config-expander": "^9.1.8",
-    "fs-resolver-fs": "^6.0.10",
+    "fs-resolver-fs": "^6.0.12",
     "sftp-resolver-fs": "^2.0.3",
     "svn-dav-fs": "^6.0.11",
     "svn-simple-auth-provider": "^1.0.1",
