@@ -33,7 +33,7 @@ caporal
   .action(async (args, options) => {
     const { context } = await prepareResolver(options);
 
-    for (const entry of context.list(args.url)) {
+    for await (const entry of context.list(args.url)) {
       console.log(entry);
     }
   })
