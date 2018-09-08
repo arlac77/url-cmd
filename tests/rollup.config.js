@@ -2,9 +2,6 @@ import istanbul from "rollup-plugin-istanbul";
 import multiEntry from "rollup-plugin-multi-entry";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
-import executable from "rollup-plugin-executable";
-import json from "rollup-plugin-json";
-import pkg from "../package.json";
 import baseRollup from "../rollup.config.js";
 
 const external = [
@@ -31,7 +28,7 @@ export default [
       resolve(),
       commonjs(),
       istanbul({
-        exclude: ["tests/**/*-test.js"]
+        exclude: ["tests/**/*-test.js", "node_modules/**/*"]
       })
     ],
     output: {
