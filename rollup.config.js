@@ -15,7 +15,6 @@ export default {
     interop: false
   },
   plugins: [
-    resolve(),
     commonjs(),
     babel({
       runtimeHelpers: false,
@@ -54,7 +53,8 @@ export default {
     "svn-dav-fs",
     "sftp-resolver-fs",
     "svn-simple-auth-provider",
-    "config-expander"
+    "config-expander",
+    "caporal"
   ],
   input: pkg.module
 };

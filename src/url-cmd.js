@@ -6,8 +6,7 @@ import { expand } from "config-expander";
 import { version } from "../package.json";
 import { basename, dirname, resolve } from "path";
 import { SvnSimpleAuthProvider } from "svn-simple-auth-provider";
-
-const caporal = require("caporal");
+import caporal from "caporal";
 
 caporal
   .description("work with url resources")
