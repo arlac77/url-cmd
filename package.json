@@ -43,9 +43,9 @@
     "url-resolver-fs": "^7.3.6"
   },
   "devDependencies": {
-    "ava": "^1.0.0-rc.1",
     "@babel/plugin-proposal-async-generator-functions": "^7.1.0",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-env": "^7.1.5",
+    "ava": "^1.0.0-rc.1",
     "documentation": "^8.1.2",
     "execa": "^1.0.0",
     "markdown-doctest": "^0.9.1",
