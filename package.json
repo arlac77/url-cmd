@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "ava": "^1.0.1",
-    "documentation": "^9.1.0",
+    "documentation": "^9.1.1",
     "execa": "^1.0.0",
     "markdown-doctest": "^0.9.1",
     "rollup": "^0.68.1",
