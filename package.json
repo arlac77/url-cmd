@@ -36,7 +36,7 @@
     "fs-resolver-fs": "^6.0.14",
     "sftp-resolver-fs": "^2.0.3",
     "svn-dav-fs": "^6.0.16",
-    "svn-simple-auth-provider": "^1.0.4",
+    "svn-simple-auth-provider": "^1.0.5",
     "url-resolver-fs": "^7.3.6"
   },
   "devDependencies": {
