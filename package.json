@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "caporal": "^1.1.0",
-    "config-expander": "^9.1.11",
+    "config-expander": "^10.0.0",
     "fs-resolver-fs": "^6.0.14",
     "sftp-resolver-fs": "^2.0.3",
     "svn-dav-fs": "^6.0.16",
