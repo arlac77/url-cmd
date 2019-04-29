@@ -47,7 +47,8 @@ const external = [
   "vm",
   "zlib",
 
-  "node-fetch"
+  "node-fetch",
+  "ssh2"
 ];
 
 export default {
