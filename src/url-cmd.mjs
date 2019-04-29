@@ -1,20 +1,20 @@
+import program from "commander";
+import { expand } from "config-expander";
+import { version, description } from "../package.json";
+import { basename, dirname, resolve } from "path";
 import { Resolver, HTTPScheme, HTTPSScheme } from "url-resolver-fs";
 import { FileScheme } from "fs-resolver-fs";
 import { SVNHTTPSScheme } from "svn-dav-fs";
 import { SFTPScheme } from "sftp-resolver-fs";
-import { expand } from "config-expander";
-import { version } from "../package.json";
-import { basename, dirname, resolve } from "path";
 import { SvnSimpleAuthProvider } from "svn-simple-auth-provider";
-import caporal from "caporal";
 
-caporal
-  .description("work with url resources")
+program
+  .description(description)
   .version(version)
   .command("schemes", "list schemes")
   .option("-c, --config <file>", "use config from file")
-  .action(async (args, options) => {
-    const { resolver } = await prepareResolver(options);
+  .action(async (...args) => {
+    const { resolver } = await prepareResolver();
     for (const [name, scheme] of resolver.schemes) {
       console.log(`${name} ${JSON.stringify(scheme)}`);
     }
@@ -22,15 +22,15 @@ caporal
   .command("info", "info url")
   .option("-c, --config <file>", "use config from file")
   .argument("<url>", "url to to list")
-  .action(async (args, options) => {
-    const { context } = await prepareResolver(options);
+  .action(async (...args) => {
+    const { context } = await prepareResolver();
     console.log(JSON.stringify(await context.stat(args.url), undefined, 2));
   })
   .command("list", "list url content")
   .option("-c, --config <file>", "use config from file")
   .argument("<url>", "url to to list")
-  .action(async (args, options) => {
-    const { context } = await prepareResolver(options);
+  .action(async (...args) => {
+    const { context } = await prepareResolver();
 
     for await (const entry of context.list(args.url)) {
       console.log(entry);
@@ -40,8 +40,8 @@ caporal
   .option("-c, --config <file>", "use config from file")
   .argument("<source>", "source url")
   .argument("<dest>", "dest url")
-  .action(async (args, options) => {
-    const { context } = await prepareResolver(options);
+  .action(async (...args) => {
+    const { context } = await prepareResolver();
 
     await context.put(args.dest, await context.get(args.source));
 
@@ -50,23 +50,20 @@ caporal
 
 caporal.parse(process.argv);
 
-async function prepareResolver(options) {
+async function prepareResolver() {
   process.on("uncaughtException", err => console.error(err));
   process.on("unhandledRejection", reason => console.error(reason));
 
-  const defaultConfig = {
-    schemes: {},
-    credentials: {}
-  };
-
   const config = await expand(
-    options.config
-      ? "${include('" + basename(options.config) + "')}"
-      : defaultConfig,
+    program.config ? "${include('" + basename(program.config) + "')}" : {},
     {
       constants: {
-        basedir: dirname(options.config || process.cwd()),
+        basedir: dirname(program.config || process.cwd()),
         installdir: resolve(__dirname, "..")
+      },
+      default: {
+        schemes: {},
+        credentials: {}
       }
     }
   );

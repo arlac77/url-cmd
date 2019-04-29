@@ -4,8 +4,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "src/url-cmd.js",
-  "module": "src/url-cmd.js",
+  "main": "src/url-cmd.mjs",
+  "module": "src/url-cmd.mjs",
   "description": "cli tool to work with url resources",
   "keywords": [
     "url",
@@ -23,15 +23,15 @@
   },
   "scripts": {
     "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
-    "docs": "documentation readme src/url-cmd.js --section=API",
-    "lint": "documentation lint src/url-cmd.js",
+    "docs": "documentation readme src/url-cmd.mjs --section=API",
+    "lint": "documentation lint src/url-cmd.mjs",
     "posttest": "npm run prepare && markdown-doctest",
     "prepare": "rollup -c",
     "pretest": "rollup -c tests/rollup.config.js",
     "test": "ava"
   },
   "dependencies": {
-    "caporal": "^1.1.0",
+    "commander": "^2.20.0",
     "config-expander": "^10.2.4",
     "fs-resolver-fs": "^7.0.0",
     "sftp-resolver-fs": "^2.0.3",
