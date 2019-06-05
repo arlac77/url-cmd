@@ -25,9 +25,9 @@
     "cover": "c8 --temp-directory build/tmp ava && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
     "docs": "documentation readme src/url-cmd.mjs --section=API",
     "lint": "documentation lint src/url-cmd.mjs",
-    "posttest": "npm run prepare && markdown-doctest",
+    "posttest": "markdown-doctest",
+    "pretest": "npm run prepare",
     "prepare": "rollup -c",
-    "pretest": "rollup -c tests/rollup.config.js",
     "test": "ava"
   },
   "dependencies": {
