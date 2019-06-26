@@ -25,9 +25,9 @@
     "cover": "c8 --temp-directory build/tmp ava && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
     "docs": "documentation readme src/url-cmd.mjs --section=API",
     "lint": "documentation lint src/url-cmd.mjs",
-    "posttest": "markdown-doctest",
-    "pretest": "npm run prepare",
+    "posttest": "npm run prepare && markdown-doctest",
     "prepare": "rollup -c",
+    "pretest": "npm run prepare",
     "test": "ava"
   },
   "dependencies": {
@@ -40,10 +40,10 @@
     "url-resolver-fs": "^8.0.2"
   },
   "devDependencies": {
-    "ava": "^2.0.0",
+    "ava": "^2.1.0",
     "builtin-modules": "^3.1.0",
-    "c8": "^5.0.1",
-    "documentation": "^11.0.0",
+    "c8": "^5.0.2",
+    "documentation": "^11.0.1",
     "esm": "^3.2.25",
     "execa": "^2.0.0",
     "markdown-doctest": "^0.9.1",
@@ -53,7 +53,7 @@
     "rollup-plugin-executable": "^1.5.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.1.0",
-    "semantic-release": "^15.13.14"
+    "semantic-release": "^15.13.17"
   },
   "engines": {
     "node": ">=10.16.0"
