@@ -4,8 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "src/url-cmd.mjs",
-  "module": "src/url-cmd.mjs",
+  "module": "src/url-cmd-cli.mjs",
   "description": "cli tool to work with url resources",
   "keywords": [
     "url",
@@ -23,8 +22,8 @@
   },
   "scripts": {
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
-    "docs": "documentation readme src/url-cmd.mjs --section=API",
-    "lint": "documentation lint src/url-cmd.mjs",
+    "docs": "documentation readme src/url-cmd-cli.mjs --section=API",
+    "lint": "documentation lint src/url-cmd-cli.mjs",
     "posttest": "npm run prepare && markdown-doctest",
     "prepare": "rollup -c",
     "pretest": "npm run prepare",

@@ -9,7 +9,8 @@ import pkg from "./package.json";
 const external = [
   ...builtins,
   "node-fetch",
-  "ssh2"
+  "ssh2",
+  "sax"
 ];
 
 const extensions = ["js", "mjs", "jsx", "tag"];
@@ -17,7 +18,6 @@ const plugins = [
   commonjs(),
   resolve(),
   json({
-  //  include: "package.json",
     preferConst: true,
     compact: true
   }),
