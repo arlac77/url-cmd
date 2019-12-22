@@ -39,7 +39,7 @@
     "url-resolver-fs": "^8.0.4"
   },
   "devDependencies": {
-    "@rollup/plugin-json": "^4.0.0",
+    "@rollup/plugin-json": "^4.0.1",
     "@rollup/plugin-node-resolve": "^6.0.0",
     "acorn-class-fields": "https://github.com/arlac77/acorn-class-fields.git",
     "ava": "^2.4.0",
