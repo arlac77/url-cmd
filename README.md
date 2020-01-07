@@ -1,7 +1,4 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![Build Status](https://secure.travis-ci.org/arlac77/url-cmd.png)](http://travis-ci.org/arlac77/url-cmd)
-[![codecov.io](http://codecov.io/github/arlac77/url-cmd/coverage.svg?branch=master)](http://codecov.io/github/arlac77/url-cmd?branch=master)
-[![Coverage Status](https://coveralls.io/repos/arlac77/url-cmd/badge.svg)](https://coveralls.io/r/arlac77/url-cmd)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/url-cmd/badge.svg)](https://snyk.io/test/github/arlac77/url-cmd)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![npm](https://img.shields.io/npm/v/url-cmd.svg)](https://www.npmjs.com/package/url-cmd)
@@ -11,6 +8,9 @@
 [![minified size](https://badgen.net/bundlephobia/min/url-cmd)](https://bundlephobia.com/result?p=url-cmd)
 [![downloads](http://img.shields.io/npm/dm/url-cmd.svg?style=flat-square)](https://npmjs.org/package/url-cmd)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/url-cmd.svg?style=flat-square)](https://github.com/arlac77/url-cmd/issues)
+[![Build Status](https://secure.travis-ci.org/arlac77/url-cmd.png)](http://travis-ci.org/arlac77/url-cmd)
+[![codecov.io](http://codecov.io/github/arlac77/url-cmd/coverage.svg?branch=master)](http://codecov.io/github/arlac77/url-cmd?branch=master)
+[![Coverage Status](https://coveralls.io/repos/arlac77/url-cmd/badge.svg)](https://coveralls.io/r/arlac77/url-cmd)
 
 ## url-cmd
 
