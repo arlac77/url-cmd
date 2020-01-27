@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "commander": "^4.1.0",
-    "config-expander": "^11.0.8",
+    "config-expander": "^11.0.9",
     "fs-resolver-fs": "^7.0.1",
     "sftp-resolver-fs": "^2.0.3",
     "svn-dav-fs": "^7.0.0",
