@@ -30,7 +30,7 @@
     "test": "ava"
   },
   "dependencies": {
-    "commander": "^4.1.0",
+    "commander": "^4.1.1",
     "config-expander": "^11.0.9",
     "fs-resolver-fs": "^7.0.1",
     "sftp-resolver-fs": "^2.0.3",
