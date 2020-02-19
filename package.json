@@ -21,12 +21,12 @@
     "url-cmd": "bin/url-cmd"
   },
   "scripts": {
-    "pretest": "npm run prepare",
     "prepare": "rollup -c",
     "test": "ava",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
     "docs": "documentation readme src/url-cmd-cli.mjs --section=API",
-    "lint": "documentation lint src/url-cmd-cli.mjs"
+    "lint": "documentation lint src/url-cmd-cli.mjs",
+    "pretest": "npm run prepare"
   },
   "dependencies": {
     "commander": "^4.1.1",
