@@ -7,7 +7,12 @@ import executable from "rollup-plugin-executable";
 import cleanup from "rollup-plugin-cleanup";
 import builtins from "builtin-modules";
 
-const external = [...builtins];
+const external = [
+  ...builtins,
+  "node-fetch",
+  "ssh2",
+  "sax"
+];
 const extensions = ["js", "mjs", "jsx", "tag"];
 const plugins = [
   commonjs(),
