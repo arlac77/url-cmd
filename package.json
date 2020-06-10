@@ -12,8 +12,8 @@
   },
   "description": "cli tool to work with url resources",
   "keywords": [
-    "url",
-    "file system"
+    "file system",
+    "url"
   ],
   "contributors": [
     {
@@ -44,7 +44,7 @@
   "devDependencies": {
     "ava": "^3.8.2",
     "c8": "^7.1.2",
-    "documentation": "^13.0.0",
+    "documentation": "^13.0.1",
     "execa": "^4.0.0",
     "semantic-release": "^17.0.8"
   },
