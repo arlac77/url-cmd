@@ -1,21 +1,17 @@
 import program from "commander";
 import { expand } from "config-expander";
-import { join, basename, dirname, resolve } from "path";
+import { basename, dirname, resolve } from "path";
 import { readFileSync } from "fs";
-import { fileURLToPath } from "url";
 import { Resolver, HTTPScheme, HTTPSScheme } from "url-resolver-fs";
 import { FileScheme } from "fs-resolver-fs";
 import { SVNHTTPSScheme } from "svn-dav-fs";
 import { SFTPScheme } from "sftp-resolver-fs";
 import { SvnSimpleAuthProvider } from "svn-simple-auth-provider";
 
-const here = dirname(fileURLToPath(import.meta.url));
-
 const { version, description } = JSON.parse(
-  readFileSync(
-    join(here, "..", "package.json"),
-    { endoding: "utf8" }
-  )
+  readFileSync(new URL("../package.json", import.meta.url).pathname, {
+    endoding: "utf8"
+  })
 );
 
 program
