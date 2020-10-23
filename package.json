@@ -50,7 +50,7 @@
     "semantic-release": "^17.2.1"
   },
   "engines": {
-    "node": ">=12.19.0"
+    "node": ">=14.14.0"
   },
   "repository": {
     "type": "git",
@@ -63,7 +63,7 @@
   "template": {
     "inheritFrom": [
       "arlac77/template-arlac77-github",
-      "arlac77/template-esm-only"
+      "arlac77/template-node-app"
     ]
   }
 }
