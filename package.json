@@ -34,7 +34,7 @@
     "lint:docs": "documentation lint src/url-cmd-cli.mjs && documentation lint ./src/url-cmd-cli.mjs"
   },
   "dependencies": {
-    "commander": "^7.1.0",
+    "commander": "^7.2.0",
     "config-expander": "^12.0.1",
     "fs-resolver-fs": "^7.0.1",
     "sftp-resolver-fs": "^2.0.3",
