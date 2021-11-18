@@ -1,3 +1,4 @@
+#!/bin/env node
 import program from "commander";
 import { expand } from "config-expander";
 import { basename, dirname, resolve } from "path";
