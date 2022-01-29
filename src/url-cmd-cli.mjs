@@ -1,8 +1,8 @@
 #!/bin/env node
-import program from "commander";
-import { expand } from "config-expander";
-import { basename, dirname, resolve } from "path";
 import { readFileSync } from "fs";
+import { basename, dirname, resolve } from "path";
+import { program } from "commander";
+import { expand } from "config-expander";
 import { Resolver, HTTPScheme, HTTPSScheme } from "url-resolver-fs";
 import { FileScheme } from "fs-resolver-fs";
 import { SVNHTTPSScheme } from "svn-dav-fs";

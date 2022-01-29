@@ -32,12 +32,12 @@
     "lint:docs": "documentation lint src/url-cmd-cli.mjs && documentation lint ./src/url-cmd-cli.mjs"
   },
   "dependencies": {
-    "commander": "^8.2.0",
+    "commander": "^9.0.0",
     "config-expander": "^12.0.5",
     "fs-resolver-fs": "^7.0.1",
     "sftp-resolver-fs": "^2.0.3",
     "svn-dav-fs": "^7.0.0",
-    "svn-simple-auth-provider": "^1.1.3",
+    "svn-simple-auth-provider": "^1.1.13",
     "url-resolver-fs": "^8.0.6"
   },
   "devDependencies": {
