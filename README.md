@@ -2,9 +2,9 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![minified size](https://badgen.net/bundlephobia/min/url-cmd)](https://bundlephobia.com/result?p=url-cmd)
 [![downloads](http://img.shields.io/npm/dm/url-cmd.svg?style=flat-square)](https://npmjs.org/package/url-cmd)
-[![GitHub Issues](https://img.shields.io/github/issues/url-cmd/url-cmd.svg?style=flat-square)](https://github.com/url-cmd/url-cmd/issues)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Furl-cmd%2Furl-cmd%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/url-cmd/url-cmd/goto)
-[![Coverage Status](https://coveralls.io/repos/url-cmd/url-cmd/badge.svg)](https://coveralls.io/github/url-cmd/url-cmd)
+[![GitHub Issues](https://img.shields.io/github/issues/arlac77/url-cmd.svg?style=flat-square)](https://github.com/arlac77/url-cmd/issues)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Furl-cmd%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/arlac77/url-cmd/goto)
+[![Coverage Status](https://coveralls.io/repos/arlac77/url-cmd/badge.svg)](https://coveralls.io/github/arlac77/url-cmd)
 
 ## url-cmd
 
