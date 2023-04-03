@@ -44,7 +44,7 @@
     "c8": "^7.13.0",
     "documentation": "^14.0.0",
     "execa": "^7.1.1",
-    "semantic-release": "^21.0.0"
+    "semantic-release": "^21.0.1"
   },
   "engines": {
     "node": ">=16.20.0"
