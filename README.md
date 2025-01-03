@@ -1,5 +1,5 @@
 [![npm](https://img.shields.io/npm/v/url-cmd.svg)](https://www.npmjs.com/package/url-cmd)
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://spdx.org/licenses/0BSD.html)
+[![License](https://img.shields.io/badge/License-0BSD-blue.svg)](https://spdx.org/licenses/0BSD.html)
 [![bundlejs](https://deno.bundlejs.com/?q=url-cmd\&badge=detailed)](https://bundlejs.com/?q=url-cmd)
 [![downloads](http://img.shields.io/npm/dm/url-cmd.svg?style=flat-square)](https://npmjs.org/package/url-cmd)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/url-cmd.svg?style=flat-square)](https://github.com/arlac77/url-cmd/issues)
