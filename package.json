@@ -33,7 +33,7 @@
     "lint:docs": "documentation lint ./src**/*.mjs"
   },
   "dependencies": {
-    "commander": "^14.0.1",
+    "commander": "^14.0.2",
     "config-expander": "^14.0.9",
     "fs-resolver-fs": "^7.0.1",
     "sftp-resolver-fs": "^2.0.3",
