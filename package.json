@@ -58,7 +58,7 @@
   "bugs": {
     "url": "https://github.com/arlac77/url-cmd/issues"
   },
-  "homepage": "https://github.com/arlac77/url-cmd#readme",
+  "homepage": "",
   "template": {
     "inheritFrom": [
       "arlac77/template-arlac77-github",
